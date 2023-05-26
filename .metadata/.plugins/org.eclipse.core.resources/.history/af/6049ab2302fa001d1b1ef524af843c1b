@@ -1,0 +1,18 @@
+package com.company.biz.user;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class UserService implements UserMapper {
+	
+	@Autowired
+	UserDAO userDAO;
+	
+	@Override
+	public void insertUser(User user) {
+		System.out.println("UserService insertUser");
+		userDAO.insertUser(user);
+	}
+
+}

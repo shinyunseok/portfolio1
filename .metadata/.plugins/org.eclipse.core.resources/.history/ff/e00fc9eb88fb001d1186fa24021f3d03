@@ -1,0 +1,23 @@
+package com.company.biz.board;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class BoardService implements BoardMapper {
+
+	@Autowired
+	BoardDAO boardDAO;
+
+	@Override
+	public void insertBoard(Board board) {
+		boardDAO.insertBoard(board);
+	}
+
+	
+	
+	
+
+
+
+}

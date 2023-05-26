@@ -1,0 +1,15 @@
+package com.company.biz.board;
+
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Mapper;
+
+@Mapper
+public interface BoardMapper {
+	
+	
+	@Insert("INSERT INTO SPRINGBOARD(SEQ,TITLE,WRITER,CONTENT) VALUES((SELECT NVL(MAX(SEQ),0)+1 FROM SPRINGBOARD),#{title},#{writer},#{content})")
+	public void insertBoard(Board vo);
+	
+	
+	
+}

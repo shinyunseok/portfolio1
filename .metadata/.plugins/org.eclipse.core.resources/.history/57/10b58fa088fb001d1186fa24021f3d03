@@ -1,0 +1,15 @@
+package com.company.biz.board;
+
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Mapper;
+
+@Mapper
+public interface BoardMapper {
+	
+	
+	@Insert("INSERT INTO board(no,TITLE,content,board_id,cnt) VALUES((SELECT NVL(MAX(no),0)+1 FROM board),#{title},#{content},#{user_id},0);")
+	public void insertBoard(Board vo);
+	
+	
+	
+}

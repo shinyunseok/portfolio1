@@ -1,0 +1,8 @@
+package com.company.biz.sport;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class SportService implements SportMapper{
+
+}

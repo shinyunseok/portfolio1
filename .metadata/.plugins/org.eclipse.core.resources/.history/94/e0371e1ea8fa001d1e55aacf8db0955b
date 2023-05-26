@@ -1,0 +1,14 @@
+package com.company.biz.sport;
+
+public class Sport {
+	private String facility_name;
+	private String event;
+	private String road_address;
+	private String landlot_address;
+	private String latitude;
+	private String longitude;
+	private String management_agency;
+	private String operating_entity;
+	private String contact_number;
+	private String usage_free;
+}

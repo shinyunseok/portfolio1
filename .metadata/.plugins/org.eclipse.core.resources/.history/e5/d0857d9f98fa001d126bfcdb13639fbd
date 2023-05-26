@@ -1,0 +1,54 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>로그인 완료 페이지</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+    }
+
+    h1 {
+        text-align: center;
+        margin-top: 50px;
+    }
+
+    .navigation {
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    .navigation a {
+        display: inline-block;
+        margin: 10px;
+        padding: 10px 20px;
+        text-decoration: none;
+        color: #fff;
+        background-color: #4e73df;
+        border-radius: 3px;
+        transition: background-color 0.3s;
+    }
+
+    .navigation a:hover {
+        background-color: #3756a4;
+    }
+</style>
+</head>
+<body>
+ <h1>공공체육시설예약서비스</h1>
+    <div class="navigation">
+    
+        <a href="login.do">로그인</a>
+        <a href="insertUser.do">회원가입</a>
+        <a href="#">체육시설</a>
+        <a href="#">게시판</a>
+        <a href="#">이용안내</a>
+    </div>
+	<h6>${user_name}님 환영합니다</h6>
+	
+	
+</body>
+</html>

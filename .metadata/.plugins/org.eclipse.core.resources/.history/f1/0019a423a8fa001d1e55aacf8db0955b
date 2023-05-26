@@ -1,0 +1,14 @@
+package com.company.biz.sport;
+
+public class Sport {
+	private String facility_name; // 시설명
+	private String event; // 종목
+	private String road_address; // 도로명주소
+	private String landlot_address; //지번주소
+	private String latitude; // 위도(보류)
+	private String longitude; // 경도 (보류)
+	private String management_agency; // 관리기관
+	private String operating_entity; // 운영주체
+	private String contact_number;	// 연락처
+	private String usage_free; // 사용료
+}

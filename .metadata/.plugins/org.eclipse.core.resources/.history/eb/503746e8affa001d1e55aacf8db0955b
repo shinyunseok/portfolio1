@@ -1,0 +1,13 @@
+package com.company.biz.sport;
+
+import java.util.List;
+
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
+
+@Mapper
+public interface SportMapper {
+	
+	@Select("select * from public_sports_facility")
+	List<Sport> getSportList(Sport sport);
+}

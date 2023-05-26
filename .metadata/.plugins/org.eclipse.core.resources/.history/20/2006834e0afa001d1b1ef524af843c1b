@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Index</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    a {
+        display: inline-block;
+        margin-right: 10px;
+        text-decoration: none;
+        color: #333;
+        padding: 5px;
+        border-radius: 3px;
+        background-color: #f2f2f2;
+    }
+
+    a:hover {
+        background-color: #ddd;
+    }
+</style>
+</head>
+<body>
+    <h1>공공체육시설예약서비스</h1>
+    <a href="login.do">로그인</a>
+    <a href="insertUser.do">회원가입</a>
+    <a href="#">체육시설</a>
+    <a href="#">게시판</a>
+    <a href="">이용안내</a>
+</body>
+</html>

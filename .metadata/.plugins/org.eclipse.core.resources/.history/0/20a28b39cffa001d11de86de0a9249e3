@@ -1,0 +1,39 @@
+package com.company.view.sport;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.company.biz.sport.Sport;
+import com.company.biz.sport.SportService;
+
+@RestController
+public class SportController {
+	
+	@Autowired
+	private SportService sportService;
+	
+	@GetMapping("/getSportList.do") // 전체 체육시설조회
+	public ModelAndView getSportList(Sport sport,ModelAndView mav) {
+		System.out.println("getSportList controller");
+		if(sport.getSearchKeyword()==null) {
+		mav.addObject("sportList", sportService.getSportList(sport));
+		System.out.println("확인");
+		mav.setViewName("sport/getSportList");
+		}else if(sport.getSearchKeyword().equals("축구")) {
+			mav.addObject("sportList", sportService.getSportList(sport));
+			System.out.println("확인");
+			mav.setViewName("sport/getSportList");
+		}
+		return mav;
+	}
+	
+	@GetMapping("/getSoccerList.do") // 종목이 축구인 체육시설조회
+	public ModelAndView getSoccerList(Sport sport,ModelAndView mav) {
+		System.out.println("getSoccerList controller");
+		mav.addObject("soccerList", sportService.getSoccerList(sport));
+		mav.setViewName("sport/getSoccerList");
+		return mav;
+	}
+}

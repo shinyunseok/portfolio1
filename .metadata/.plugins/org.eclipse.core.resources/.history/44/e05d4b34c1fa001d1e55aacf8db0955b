@@ -1,0 +1,13 @@
+package com.company.biz.sport;
+
+import java.util.List;
+
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
+
+@Mapper
+public interface SportMapper {
+	
+	@Select("SELECT * FROM public_sports_facility WHERE seq BETWEEN 1 AND 10 ORDER BY seq ASC")
+	List<Sport> getSportList(Sport sport);
+}

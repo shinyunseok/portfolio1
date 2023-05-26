@@ -1,0 +1,21 @@
+package com.company.biz.board;
+
+import java.util.List;
+
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
+
+@Mapper
+public interface BoardMapper {
+	
+	
+	@Insert("INSERT INTO board(no,TITLE,content,board_id,cnt) VALUES((SELECT NVL(MAX(no),0)+1 FROM board),#{title},#{content},#{user_id},0);")
+	public void insertBoard(Board board);
+	
+	@Select("select * from board")
+	List<Board> getBoardList(Board board);
+	
+	@Select("select * from board where seq=#{seq}")
+	List<Board> getBoard(Board board);
+}
