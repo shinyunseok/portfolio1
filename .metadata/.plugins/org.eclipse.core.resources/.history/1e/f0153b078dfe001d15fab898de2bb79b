@@ -1,0 +1,25 @@
+package com.company.biz.board;
+
+import java.util.List;
+
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
+
+@Mapper
+public interface BoardMapper {
+	
+	
+	@Insert("INSERT INTO BOARD (NO, TITLE, CONTENT, CNT, BOARD_ID)\r\n"
+			+ "VALUES ((SELECT NVL(MAX(NO), 0) + 1 FROM BOARD),\r\n"
+			+ "        #{title}, #{content}, 0,\r\n"
+			+ "        (SELECT user_id FROM users WHERE user_id = #{board_id}))\r\n"
+			+ "")
+	public void insertBoard(Board board);
+	
+	@Select("select * from board order by no desc")
+	List<Board> getBoardList(Board board);
+	
+	@Select("select * from board where no=#{no}")
+	Board getBoard(Board board);
+}

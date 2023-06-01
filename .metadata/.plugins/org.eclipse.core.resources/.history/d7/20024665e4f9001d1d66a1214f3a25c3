@@ -1,9 +1,0 @@
-package com.company.biz.user;
-
-import org.apache.ibatis.annotations.Insert;
-
-public interface UserMapper {
-	
-	@Insert("INSERT INTO users(user_id,password,user_name,user_number,email,user_birthdate,user_gender) VALUES #{user_id},#{password},#{user_name},#{user_number},#{email},#{user_birthdate},#{user_gender}")
-	public void insertUser;
-}

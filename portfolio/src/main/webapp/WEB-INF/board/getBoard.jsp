@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,321 +8,305 @@
 <style>
 /* 전체 페이지 스타일 */
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
-  margin: 0;
-  padding: 0;
+	font-family: Arial, sans-serif;
+	background-color: #f4f4f4;
+	margin: 0;
+	padding: 0;
 }
 
 /* 컨테이너 스타일 */
 .container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
+	max-width: 800px;
+	margin: 0 auto;
+	padding: 20px;
 }
 
 /* 제목 스타일 */
 h1 {
-  text-align: center;
-  margin: 30px 0;
-  color: #333;
+	text-align: center;
+	margin: 30px 0;
+	color: #333;
 }
 
 /* 내비게이션 스타일 */
 .navigation {
-  margin-bottom: 20px;
-  text-align: center;
+	margin-bottom: 20px;
+	text-align: center;
 }
 
 .navigation h3 {
-  margin-top: 0;
-  font-size: 18px;
+	margin-top: 0;
+	font-size: 18px;
 }
 
 .navigation a {
-  display: inline-block;
-  margin: 5px;
-  padding: 10px 20px;
-  text-decoration: none;
-  color: #fff;
-  background-color: #4e73df;
-  border-radius: 5px;
-  transition: background-color 0.3s;
-  font-size: 14px;
-  border: none;
-  cursor: pointer;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	display: inline-block;
+	margin: 5px;
+	padding: 10px 20px;
+	text-decoration: none;
+	color: #fff;
+	background-color: #4e73df;
+	border-radius: 5px;
+	transition: background-color 0.3s;
+	font-size: 14px;
+	border: none;
+	cursor: pointer;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .navigation a:hover {
-  background-color: #3756a4;
+	background-color: #3756a4;
 }
 
 /* 검색창 스타일 */
 .search-form {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 20px;
+	display: flex;
+	justify-content: center;
+	margin-bottom: 20px;
 }
 
-.search-form select,
-.search-form input[type="text"] {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+.search-form select, .search-form input[type="text"] {
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
 }
 
 .search-form select {
-  margin-right: 10px;
+	margin-right: 10px;
 }
 
 .search-form button[type="submit"] {
-  padding: 10px 20px;
-  background-color: #4e73df;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+	padding: 10px 20px;
+	background-color: #4e73df;
+	color: #fff;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
 }
 
 .search-form button[type="submit"]:hover {
-  background-color: #3756a4;
+	background-color: #3756a4;
 }
 
 /* 테이블 스타일 */
 table {
-  width: 100%;
-  border-collapse: collapse;
+	width: 100%;
+	border-collapse: collapse;
 }
 
 thead {
-  background-color: #4e73df;
-  color: #fff;
+	background-color: #4e73df;
+	color: #fff;
 }
 
 th, td {
-  padding: 15px;
-  text-align: center;
-  border-bottom: 1px solid #ccc;
+	padding: 15px;
+	text-align: center;
+	border-bottom: 1px solid #ccc;
 }
 
-th:first-child,
-td:first-child {
-  width: 10%;
+th:first-child, td:first-child {
+	width: 10%;
 }
 
-th:nth-child(2),
-td:nth-child(2) {
-  width: 40%;
+th:nth-child(2), td:nth-child(2) {
+	width: 40%;
 }
 
-th:nth-child(3),
-td:nth-child(3) {
-  width: 20%;
+th:nth-child(3), td:nth-child(3) {
+	width: 20%;
 }
 
-th:nth-child(4),
-td:nth-child(4) {
-  width: 15%;
+th:nth-child(4), td:nth-child(4) {
+	width: 15%;
 }
 
-th:last-child,
-td:last-child {
-  width: 15%;
+th:last-child, td:last-child {
+	width: 15%;
 }
 
 tbody tr:nth-child(even) {
-  background-color: #f4f4f4;
+	background-color: #f4f4f4;
 }
 
 tbody tr:hover {
-  background-color: #ebebeb;
+	background-color: #ebebeb;
 }
 
 /* selectEvent 스타일 */
 .selectEvent {
-  margin-bottom: 20px;
-  text-align: center;
+	margin-bottom: 20px;
+	text-align: center;
 }
 
 .selectEvent a {
-  display: inline-block;
-  margin: 5px;
-  padding: 10px 20px;
-  text-decoration: none;
-  color: #333;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  transition: background-color 0.3s;
-  font-size: 14px;
-  cursor: pointer;
+	display: inline-block;
+	margin: 5px;
+	padding: 10px 20px;
+	text-decoration: none;
+	color: #333;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	transition: background-color 0.3s;
+	font-size: 14px;
+	cursor: pointer;
 }
 
 .selectEvent a:hover {
-  background-color: #f1f1f1;
+	background-color: #f1f1f1;
 }
 
 /* selectBar 스타일 */
 #selectBar {
-  text-align: center;
-  margin-bottom: 20px;
+	text-align: center;
+	margin-bottom: 20px;
 }
 
-#selectBar select,
-#selectBar input[type="text"] {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+#selectBar select, #selectBar input[type="text"] {
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
 }
 
 #selectBar select {
-  margin-right: 10px;
+	margin-right: 10px;
 }
 
 #selectBar button[type="submit"] {
-  padding: 10px 20px;
-  background-color: #4e73df;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+	padding: 10px 20px;
+	background-color: #4e73df;
+	color: #fff;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
 }
 
 #selectBar button[type="submit"]:hover {
-  background-color: #3756a4;
+	background-color: #3756a4;
 }
 
 #selectBar button[type="button"] {
-  padding: 10px 20px;
-  background-color: #4e73df;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+	padding: 10px 20px;
+	background-color: #4e73df;
+	color: #fff;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
 }
 
 #selectBar button[type="button"]:hover {
-  background-color: #3756a4;
+	background-color: #3756a4;
 }
 
 /* advancedSearchDiv 스타일 */
 #advancedSearchDiv {
-  display: none;
-  text-align: center;
-  margin-bottom: 20px;
-  padding-top: 20px;
-  border-top: 1px solid #ccc;
+	display: none;
+	text-align: center;
+	margin-bottom: 20px;
+	padding-top: 20px;
+	border-top: 1px solid #ccc;
 }
 
 #advancedSearchDiv label {
-  display: block;
-  margin-bottom: 10px;
+	display: block;
+	margin-bottom: 10px;
 }
 
 #advancedSearchDiv input[type="radio"] {
-  margin-right: 5px;
+	margin-right: 5px;
 }
 
 /* write-button 스타일 */
 .write-button {
-  display: inline-block;
-  margin: 5px;
-  padding: 10px 20px;
-  text-decoration: none;
-  color: #fff;
-  background-color: #4e73df;
-  border: none;
-  border-radius: 5px;
-  transition: background-color 0.3s;
-  font-size: 14px;
-  cursor: pointer;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	display: inline-block;
+	margin: 5px;
+	padding: 10px 20px;
+	text-decoration: none;
+	color: #fff;
+	background-color: #4e73df;
+	border: none;
+	border-radius: 5px;
+	transition: background-color 0.3s;
+	font-size: 14px;
+	cursor: pointer;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .write-button:hover {
-  background-color: #3756a4;
+	background-color: #3756a4;
 }
-
-
-
 </style>
 
 <title>게시판</title>
 </head>
 <body>
-  <h1>게시판</h1>
-  <div class="navigation">
-    <h3>${user_name}님 환영합니다</h3>
-    <c:if test="${empty user_id}">
-      <a href="login.do">로그인</a>
-    </c:if>
-    <a href="logout.do">로그아웃</a>
-    <!-- <a href="insertUser.do">회원가입</a> -->
-    <a href="getSportList.do">체육시설</a>
-    <a href="getBoardList.do">게시판</a>
-    <a href="#">이용안내</a>
-  </div>
+	<h1>게시판</h1>
+	<div class="navigation">
+		<h3>${user_name}님환영합니다</h3>
+		<c:if test="${empty user_id}">
+			<a href="login.do">로그인</a>
+		</c:if>
+		<a href="logout.do">로그아웃</a> <a href="getSportList.do">체육시설</a> <a
+			href="getBoardList.do">게시판</a> <a href="#">이용안내</a>
+	</div>
 
-  <div id="selectBar">
-    <form class="search-form" action="#" method="GET">
-      <select name="search_type">
-        <option value="all">전체</option>
-        <option value="facility_name">시설명</option>
-        <option value="location">지역</option>
-      </select>
-      <input type="text" name="search_query" placeholder="검색어를 입력하세요" required>
-      <button type="submit">검색</button>
-    </form>
-    <button onclick="toggleAdvancedSearch()">상세검색</button>
-  </div>
+	<div id="selectBar">
+		<form class="search-form" action="#" method="GET">
+			<select name="search_type">
+				<option value="all">전체</option>
+				<option value="facility_name">시설명</option>
+				<option value="location">지역</option>
+			</select> <input type="text" name="search_query" placeholder="검색어를 입력하세요"
+				required>
+			<button type="submit">검색</button>
+		</form>
+	</div>
 
-  <div id="advancedSearchDiv">
-    <label>
-      지역
-      <input type="radio" name="location" value="all" checked>전체
-      <input type="radio" name="location" value="jangan">장안구
-      <input type="radio" name="location" value="gwonseon">권선구
-      <input type="radio" name="location" value="paldal">팔달구
-      <input type="radio" name="location" value="yeongtong">영통구
-    </label>
-    <label>
-      이용날짜
-      <input type="date" name="usage_date">
-    </label>
-    <label>
-      접수상태
-      <input type="radio" name="status" value="available">예약가능
-      <input type="radio" name="status" value="booking">예약중
-      <input type="radio" name="status" value="completed">예약완료
-    </label>
-    <label>
-      이용요금
-      <input type="radio" name="fee" value="paid">유료
-      <input type="radio" name="fee" value="free">무료
-    </label>
-  </div>
 
-  <table class="boardTable">
-    <tr>
-      <th colspan="3">${board.title }</th>
-    </tr>
+	<table class="boardTable">
+		<tr>
+			<th colspan="3">${board.title }</th>
+		</tr>
+
+		<tr>
+			<td><label>작성날짜</label> ${board.regDate } <label>작성자</label> :
+				${board.board_id } <label>조회수</label>${board.cnt }</td>
+		</tr>
+		<tr>
+			<td colspan="3">${board.content }</td>
+		</tr>
+	</table>
+	<button id="comment_open">댓글작성</button> <br>
+	<form action="insertComment.do" method="post" id="comment_form" style="display: none;">
+		댓글작성 <a href="#">최신순</a> <br>
+		<input type="hidden" value="${user_id }" name="comment_id">
+		<input type="hidden" value="${board.no }" name="comment_no">
+		<textarea rows="10" cols="100" placeholder="댓글을 입력하세요"
+			name="comment_content">${user_id }</textarea>
+		<br> <input type="submit" value="등록">
+	</form>
 	
-	<tr>
-		<td> <label>작성날짜</label> ${board.regDate } <label>작성자</label> : ${board.board_id } <label>조회수</label>${board.cnt }</td>
-	</tr>
-	<tr>
-		<td colspan="3">${board.content }</td>
-	</tr>	    
-  </table>
+<div>
+	<c:forEach items="${commentList }" var="comment">
+<p><b>${comment.comment_id}</b> &nbsp;&nbsp; ${comment.regDate}</p>	
+<c:if test="${user_id == comment.comment_id || user_id == 'admin'}">
+	<a href="#">삭제</a> <a href="#">변경</a>
+	</c:if>	 
+		내용 : 
+	${comment.comment_content}	 
+	</c:forEach>
+</div>
+	
+	<button class="write-button" onclick="location.href='insertBoard.do'">글쓰기</button>
+	<button class="write-button" onclick="location.href='getBoardList.do'">목록</button>
+	<script>
+  const commentOpenButton = document.getElementById('comment_open');
+  const commentForm = document.getElementById('comment_form');
 
-  <button class="write-button" onclick="location.href='insertBoard.do'">글쓰기</button>
-  <button class="write-button" onclick="location.href='getBoardList.do'">목록</button>
+  commentOpenButton.addEventListener('click', function() {
+    commentForm.style.display = commentForm.style.display === 'none' ? 'block' : 'none';
+  });
+</script>
 
-  <script>
-    function toggleAdvancedSearch() {
-      var advancedSearchDiv = document.getElementById("advancedSearchDiv");
-      advancedSearchDiv.style.display = (advancedSearchDiv.style.display === "none") ? "block" : "none";
-    }
-  </script>
 </body>
 </html>

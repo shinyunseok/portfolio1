@@ -11,12 +11,10 @@ public class UserDAO {
 	private SqlSessionTemplate mybatis;
 	
 	public void insertUser(User user) {
-		System.out.println("UserDAO insertUser");
 		mybatis.insert("insertUser", user);
 	}
 	
 	public User login(User user) {
-		System.out.println("UserDAO login");
 		return mybatis.selectOne("login", user);
 	}
 }

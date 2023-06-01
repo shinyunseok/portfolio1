@@ -1,0 +1,34 @@
+package com.company.biz.board;
+
+import java.util.List;
+
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
+
+@Mapper
+public interface BoardMapper {
+	
+	
+	@Insert("INSERT INTO BOARD (NO, TITLE, CONTENT, CNT, board_id) VALUES ((SELECT NVL(MAX(NO), 0) + 1 FROM BOARD), #{title}, #{content}, 0,(SELECT user_id FROM users WHERE user_id = #{board_id}))")
+	public void insertBoard(Board board);
+
+	@Update("UPDATE BOARD SET CNT=CNT+1 WHERE no=#{no}")
+	public void updateCnt(Board vo);
+	
+	@Select("select * from board order by no desc")
+	List<Board> getBoardList(Board board);
+	
+	@Select("select * from board where no=#{no}")
+	Board getBoard(Board board);
+	
+	
+	
+//	---------------------- 댓글 ---------------------------------
+	
+	@Insert("insert into boardComment(seq,idx,comment_id,comment_content) values ((SELECT NVL(MAX(seq), 0) + 1 FROM BOARDComment),1,#{comment})")
+	public void insertComment(BoardComment comment);
+	
+	
+}

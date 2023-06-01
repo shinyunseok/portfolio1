@@ -17,10 +17,15 @@ public class SportService implements SportMapper{
 		return sportDAO.getSportList(sport);
 	}
 
-//	@Override
-//	public List<Sport> getSoccerList(Sport sport) {
-//		System.out.println("getSoccerList Service");
-//		return sportDAO.getSoccerList(sport);
-//	}
+	
+//	---------------------- 페이징 ---------------------------------
+	
+	@Override
+	public int totalCount(Sport sport) { // 총 게시물 개수
+		return	sportDAO.totalCount(sport);
+		
+	}
+
+
 
 }

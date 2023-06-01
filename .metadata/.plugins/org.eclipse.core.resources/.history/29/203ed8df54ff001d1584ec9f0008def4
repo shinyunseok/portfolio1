@@ -1,0 +1,25 @@
+package com.company.biz.sport;
+
+import java.util.List;
+
+import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public class SportDAO {
+	
+	@Autowired
+	private SqlSessionTemplate mybatis;
+	
+	public List<Sport> getSportList(Sport sport) {
+		System.out.println("SportDAO sportList 가져오기");
+		return mybatis.selectList("getSportList", sport);
+	}
+	
+	public List<Sport> getSoccerList(Sport sport) {
+		System.out.println("SportDAO 종목이 축구인 리스트 가져오기");
+		return mybatis.selectList("getSoccerList", sport);
+	}
+	
+}

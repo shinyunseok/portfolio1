@@ -27,9 +27,26 @@ public class BoardService implements BoardMapper {
 		return boardDAO.getBoard(board);
 	}
 
+	@Override
+	public void updateCnt(Board board) {
+		boardDAO.updateCnt(board);
+	}
+
+	
+
 	
 	
+//	---------------------- 댓글 ---------------------------------
 	
+	@Override
+	public void insertComment(BoardComment comment) {
+		boardDAO.insertComment(comment);
+	}
+
+	@Override
+	public List<BoardComment> getCommentList(BoardComment comment) {
+		return boardDAO.getCommentList(comment);
+	}
 
 
 

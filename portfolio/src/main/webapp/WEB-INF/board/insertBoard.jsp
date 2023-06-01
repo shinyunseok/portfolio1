@@ -146,8 +146,8 @@ h1 {
         <label for="title">제목</label>
         <input type="text" id="title" name="title" required placeholder="제목을 입력해주세요">
         <br>
-        <label for="author">작성자</label>
-        <input type="text" id="author" value="${user_id }" disabled>
+        <label for="">작성자</label>
+        <input type="text" id="" name="board_id" value="${user_id }" readonly="readonly">
         <br>
         <label for="content">내용</label>
         <textarea id="content" name="content" rows="10" required placeholder="내용을 입력해주세요"></textarea>

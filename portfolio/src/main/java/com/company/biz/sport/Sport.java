@@ -13,6 +13,7 @@ public class Sport {
 	private String contact_number;	// 연락처
 	private String usage_free; // 사용료
 	private String searchKeyword;
+	private int page;
 	private int rnum;
 	
 	
@@ -24,6 +25,12 @@ public class Sport {
 	}
 	public void setRnum(int rnum) {
 		this.rnum = rnum;
+	}
+	public int getPage() {
+		return page;
+	}
+	public void setPage(int page) {
+		this.page = page;
 	}
 	public String getSearchKeyword() {
 		return searchKeyword;

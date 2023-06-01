@@ -22,4 +22,13 @@ public class SportDAO {
 		return mybatis.selectList("getSoccerList", sport);
 	}
 	
+	
+//	---------------------- 페이징 ---------------------------------
+	
+	public int totalCount(Sport sport) {
+		System.out.println("페이징처리");
+		return mybatis.selectOne("totalCount", sport);
+	}
+	
+	
 }

@@ -266,40 +266,15 @@ tbody tr:hover {
     <form class="search-form" action="#" method="GET">
       <select name="search_type">
         <option value="all">전체</option>
-        <option value="facility_name">시설명</option>
-        <option value="location">지역</option>
+        <option value="facility_name">제목</option>
+        <option value="location">작성자</option>
       </select>
       <input type="text" name="search_query" placeholder="검색어를 입력하세요" required>
       <button type="submit">검색</button>
     </form>
-    <button onclick="toggleAdvancedSearch()">상세검색</button>
   </div>
 
-  <div id="advancedSearchDiv">
-    <label>
-      지역
-      <input type="radio" name="location" value="all" checked>전체
-      <input type="radio" name="location" value="jangan">장안구
-      <input type="radio" name="location" value="gwonseon">권선구
-      <input type="radio" name="location" value="paldal">팔달구
-      <input type="radio" name="location" value="yeongtong">영통구
-    </label>
-    <label>
-      이용날짜
-      <input type="date" name="usage_date">
-    </label>
-    <label>
-      접수상태
-      <input type="radio" name="status" value="available">예약가능
-      <input type="radio" name="status" value="booking">예약중
-      <input type="radio" name="status" value="completed">예약완료
-    </label>
-    <label>
-      이용요금
-      <input type="radio" name="fee" value="paid">유료
-      <input type="radio" name="fee" value="free">무료
-    </label>
-  </div>
+  
 
   <table>
     <tr>
@@ -309,7 +284,9 @@ tbody tr:hover {
       <th>등록일</th>
       <th>조회수</th>
     </tr>
+    
     <c:forEach items="${boardList}" var="board">
+    
       <tr>
         <td>${board.no}</td>
         <td><a href="getBoard.do?no=${board.no }">${board.title}</a></td>
@@ -319,14 +296,11 @@ tbody tr:hover {
       </tr>
     </c:forEach>
   </table>
+	<c:if test="${user_id!=null }">
+	<button class="write-button" onclick="location.href='insertBoard.do'">글쓰기</button>
+	</c:if>
+  
 
-  <button class="write-button" onclick="location.href='#'">글쓰기</button>
-
-  <script>
-    function toggleAdvancedSearch() {
-      var advancedSearchDiv = document.getElementById("advancedSearchDiv");
-      advancedSearchDiv.style.display = (advancedSearchDiv.style.display === "none") ? "block" : "none";
-    }
-  </script>
+  
 </body>
 </html>

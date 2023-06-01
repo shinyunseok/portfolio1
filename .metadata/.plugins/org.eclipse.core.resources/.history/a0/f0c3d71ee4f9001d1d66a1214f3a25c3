@@ -1,5 +1,0 @@
-package com.company.biz.user;
-
-public interface UserMapper {
-
-}

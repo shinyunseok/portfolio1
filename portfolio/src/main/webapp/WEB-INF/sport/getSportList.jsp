@@ -207,6 +207,18 @@ td {
 <title>체육시설현황</title>
 </head>
 <body>
+<%-- <c:if test="${empty totalCount}"> --%>
+<%-- 	<c:set var="totalCount" value="1" /> --%>
+<%-- </c:if> --%>
+
+<c:choose>
+	<c:when test="${empty page }">
+		<c:set var="page" value="1" />
+	</c:when>
+	<c:otherwise>
+		<c:set var="page" value="${page }" />
+	</c:otherwise>
+</c:choose>
 	<h1>체육시설현황</h1>
 	<div class="navigation">
     <h3>${user_name}님 환영합니다</h3>
@@ -251,7 +263,7 @@ td {
 </div>
 	<table>
 		<tr>
-			<th>번호</th>
+<!-- 			<th>번호</th> -->
 			<th>시설명</th>
 			<th>종목</th>
 			<th>소재지도로명주소</th>
@@ -267,7 +279,7 @@ td {
 		
 		<c:forEach items="${sportList}" var="sport">
 		<tr>
-			<td>${sport.rnum }</td>
+			<td>${sport.rnum}</td>
 			<td>${sport.facility_name }</td>
 			<td>${sport.event } </td>
 			<td>${sport.road_address } </td>
@@ -282,6 +294,10 @@ td {
 			
 		
 	</table>
-	
+		
+
+	<h1>게시물개수 : ${totalCount }</h1> 
+	<h1>현재페이지 : ${page }</h1> 
+		
 </body>
 </html>

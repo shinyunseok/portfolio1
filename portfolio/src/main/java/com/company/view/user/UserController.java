@@ -19,14 +19,12 @@ public class UserController {
 	
 	@GetMapping("/insertUser.do") // insertUser 페이지로 
 	public ModelAndView insertUserView(ModelAndView mav) {
-		System.out.println("insertUser 페이지 이동");
 		mav.setViewName("user/insertUser");
 		return mav;
 	}
 	
 	@PostMapping("insertUser.do") // 회원가입
 	public ModelAndView insertUser(User user,ModelAndView mav) {
-		System.out.println("insertUser 페이지 이동");
 		userService.insertUser(user);
 		mav.setViewName("user/insertUserSuccess");
 		return mav;
@@ -34,7 +32,6 @@ public class UserController {
 	
 	@GetMapping("/login.do")
 	   public ModelAndView loginView(ModelAndView mav) {
-	      System.out.println("login 페이지 이동");
 	      mav.setViewName("user/login");
 	      return mav;
 	}

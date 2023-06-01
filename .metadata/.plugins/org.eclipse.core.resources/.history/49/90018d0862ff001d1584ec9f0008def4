@@ -1,0 +1,43 @@
+package com.company.view.sport;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.company.biz.sport.Sport;
+import com.company.biz.sport.SportService;
+
+@RestController
+public class SportController {
+
+	@Autowired
+	private SportService sportService;
+
+	@GetMapping("/getSportList.do") // 전체 체육시설조회 및 a태그
+	public ModelAndView getSportList(Sport sport, ModelAndView mav) {
+		
+		System.out.println(sportService.totalCount(sport) + "<<<< 전체 게시물 개수를 받아오나요");
+		System.out.println(sport.getSearchKeyword() + "<<<검색키워드");
+
+		System.out.println(sportService.totalCount(sport) + "<<<< 전체 게시물 개수");
+		if (sport.getSearchKeyword() == null) {
+			sport.setSearchKeyword("");
+			mav.addObject("totalCount", sportService.totalCount(sport));
+			if (sport.getPage() == 0) {
+				sport.setPage(1);
+			}
+			mav.addObject("sportList", sportService.getSportList(sport));
+			System.out.println(sport.getSearchKeyword());
+			mav.setViewName("sport/getSportList");
+		} else {
+			mav.addObject("sportList", sportService.getSportList(sport));
+			mav.addObject("totalCount", sportService.totalCount(sport));
+			System.out.println(sport.getSearchKeyword() + "rjatorzldnme");
+			System.out.println("확인");
+			mav.setViewName("sport/getSportList");
+		}
+		return mav;
+	}
+
+}

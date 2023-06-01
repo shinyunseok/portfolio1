@@ -25,6 +25,22 @@ public class BoardDAO{
 	public Board getBoard(Board board) {
 		return mybatis.selectOne("getBoard", board);
 	}
-
 	
+	public void updateCnt(Board board) {
+		System.out.println("조회수 증가");
+		mybatis.update("updateCnt", board);
+	}
+	
+	
+	
+//	---------------------- 댓글 ---------------------------------
+	
+	public void insertComment(BoardComment comment) {
+		System.out.println("댓글");
+		mybatis.insert("insertComment", comment);
+	}
+
+	public List<BoardComment> getCommentList(BoardComment comment) {
+		return mybatis.selectList("getCommentList", comment);
+	}
 }

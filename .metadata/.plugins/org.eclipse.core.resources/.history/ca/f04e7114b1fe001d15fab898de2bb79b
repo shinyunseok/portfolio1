@@ -1,0 +1,42 @@
+package com.company.biz.board;
+
+public class BoardComment {
+	private int seq;
+	private int idx;
+	private String comment_id;
+	private String comment_content;
+	private String regDate;
+	
+	public int getSeq() {
+		return seq;
+	}
+	public void setSeq(int seq) {
+		this.seq = seq;
+	}
+	public int getIdx() {
+		return idx;
+	}
+	public void setIdx(int idx) {
+		this.idx = idx;
+	}
+	public String getComment_id() {
+		return comment_id;
+	}
+	public void setComment_id(String comment_id) {
+		this.comment_id = comment_id;
+	}
+	public String getContent() {
+		return comment_content;
+	}
+	public void setContent(String content) {
+		this.comment_content = content;
+	}
+	public String getRegDate() {
+		return regDate;
+	}
+	public void setRegDate(String regDate) {
+		this.regDate = regDate;
+	}
+	
+	
+}
